@@ -1,0 +1,6 @@
+*.a filter=lfs diff=lfs merge=lfs
+*.lib filter=lfs diff=lfs merge=lfs
+*.dylib filter=lfs diff=lfs merge=lfs
+*.so filter=lfs diff=lfs merge=lfs
+*.xz filter=lfs diff=lfs merge=lfs
+*.dll filter=lfs diff=lfs merge=lfs
