@@ -1,6 +1,13 @@
 *.vs
 game/*/*.dll
+game/*/*/*.dll
 game/*.exe
+hl2_src/game/client/*/*.dll
+hl2_src/game/client/*/*.lib
+hl2_src/game/server/*/*.dll
+hl2_src/game/server/*/*.lib
+!game/bin/Mss32.dll
+!game/bin/vaudio_miles.dll
 !game/bin/SDL2.dll
 !game/dll/steam_api.dll
 [Dd]ebug*
@@ -9,7 +16,7 @@ game/*.exe
 !hl2_src/thirdparty/protobuf-2.6.1/bin/win32/2015/staticcrt/[Rr]elease
 *.vpc_crc
 *.sentinel
-generated_proto
+generated_proto*
 
 #tier0
 hl2_src/tier0/ValveETWProviderEvents.h

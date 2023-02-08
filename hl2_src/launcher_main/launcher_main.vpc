@@ -68,7 +68,7 @@ $Configuration
 									"if ERRORLEVEL 1 goto BuildEventFailed" "\n" \
 									"copy $(TargetDir)\default.pdb $OUTBINDIR\default.pdb" "\n"					\
 									"if ERRORLEVEL 1 goto BuildEventFailed" "\n" \
-									"if exist $(TargetDir)$(TargetName).map copy $(TargetDir)$(TargetName).map $OUTBINDIR\hl2.map" "\n" \					\
+									"if exist $(TargetDir)$(TargetName).map copy $(TargetDir)$(TargetName).map $OUTBINDIR\hl2.map" "\n" 					\
 									"goto BuildEventOK" "\n" \
 									":BuildEventFailed" "\n" \
 									"echo *** ERROR! PostBuildStep FAILED for $(ProjectName)! EXE or DLL is probably running. ***" "\n" \
