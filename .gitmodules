@@ -1,4 +1,0 @@
-[submodule "hl2_src/ivp"]
-	path = hl2_src/ivp
-	url = https://github.com/usernameunavalible0/source-physics.git
-	branch = patch-1
