@@ -8,7 +8,7 @@ $Macro SRCDIR		"..\.."
 $Macro GAMENAME 	"tf"
 
 // This code currently only builds on Windows (itemtest_lib and dependencies)
-$Macro WORKSHOP_IMPORT_ENABLE	$WINDOWS
+//$Macro WORKSHOP_IMPORT_ENABLE	$WINDOWS
 
 $Include "$SRCDIR\game\client\client_base.vpc"
 $include "$SRCDIR\game\shared\tf\tf_gcmessages_include.vpc"
@@ -21,7 +21,7 @@ $Configuration
 	$Compiler
 	{
 		$AdditionalIncludeDirectories	".\hl2;.\hl2\elements;.\tf;.\tf\vgui;..\statemachine;$SRCDIR\game\shared\multiplayer;$SRCDIR\game\shared\tf;$SRCDIR\gcsdk\steamextra;$BASE;.\econ"
-		$PreprocessorDefinitions		"$BASE;TF_CLIENT_DLL;USES_ECON_ITEMS;ENABLE_GC_MATCHMAKING;GLOWS_ENABLE;USE_DYNAMIC_ASSET_LOADING;SIXENSE;VOTING_ENABLED;NEXT_BOT"
+		$PreprocessorDefinitions		"$BASE;TF_CLIENT_DLL;USES_ECON_ITEMS;ENABLE_GC_MATCHMAKING;GLOWS_ENABLE;USE_DYNAMIC_ASSET_LOADING;VOTING_ENABLED;NEXT_BOT"
 		$PreprocessorDefinitions		"$BASE;SAXXYMAINMENU_ENABLED" [$SAXXYAWARDS_ENABLE]
 		$PreprocessorDefinitions		"$BASE;WORKSHOP_IMPORT_ENABLED" [$WORKSHOP_IMPORT_ENABLE]
 	}
@@ -893,16 +893,9 @@ $Project "Client (TF)"
 		}
 	}
 
-	$Folder "Useful non-source files" [!$ANALYZE && !$BUILDBOT]
-	{
-		$File "$SRCDIR\..\game\tf\scripts\HudAnimations_tf.txt"
-		$File "$SRCDIR\..\game\tf\resource\tf_english.txt"
-		$File "$SRCDIR\..\game\tf\resource\ModEvents.res"
-		$File "$SRCDIR\..\game\tf\resource\ClientScheme.res"
-	}
-
 	$Folder	"Link libraries"
 	{
+		//Will remove at a later date
 		$ImplibExternal	"steamnetworkingsockets"
 	}
 }

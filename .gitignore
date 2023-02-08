@@ -3,6 +3,7 @@ game/*.dll
 game/*.exe
 [Rr]elease
 [Dd]ebug
+*.vpc_crc
 
 # Files to ignore when considering what GIT should commit.
 
@@ -24,6 +25,7 @@ ipch
 *.opensdf
 *.idb
 *.vcxproj
+*.vcxproj.filters
 *.sln
 
 # OSX/Linux build products
