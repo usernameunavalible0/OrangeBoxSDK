@@ -1,7 +1,6 @@
 TODO:
 
 --Mainly for TF2:
-Remove steamnetworkingsockets.dll/.lib
 Disable Econ Items
 Remove Matchmaking/Redo UI to open community server browser instead of matchmaking menu
 
@@ -10,3 +9,6 @@ Use the matchmaking code to do some sort of auto join community servers.
 
 ALL:
 Fix dedicated server!
+
+DONE:
+Removed SDR

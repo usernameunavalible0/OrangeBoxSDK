@@ -74,8 +74,10 @@ static bool BPingDebug() { return tf_datacenter_ping_debug.GetBool(); }
 #ifdef TF_GC_PING_DEBUG
 #include "tier0/icommandline.h"
 static bool BUseSteamDatagram() { return !CommandLine()->CheckParm("-nosteamdatagram" ); }
-#else
+#elseif defined(OB_USE_SDR)
 static bool BUseSteamDatagram() { return true; }
+#else
+static bool BUseSteamDatagram() { return false; }
 #endif
 
 using namespace GCSDK;
@@ -414,6 +416,7 @@ void CTFGCClientSystem::LoadCasualSearchCriteria()
 // Initialize steam client datagram lib if we haven't already
 static bool CheckInitSteamDatagramClientLib()
 {
+#ifdef OB_USE_SDR
 	if ( !BUseSteamDatagram() )
 		return false;
 
@@ -448,6 +451,9 @@ static bool CheckInitSteamDatagramClientLib()
 	bInittedNetwork = true;
 
 	return true;
+#else
+	return false;
+#endif
 }
 bool CTFGCClientSystem::Init()
 {
@@ -464,8 +470,10 @@ bool CTFGCClientSystem::Init()
 	// init steamdatagram system ASAP so we're more likely to have initial ping data to the clusters ready by the time
 	// we ask for it
 	CheckInitSteamDatagramClientLib();
+#ifdef OB_USE_SDR
 	if ( SteamNetworkingUtils() )
 		SteamNetworkingUtils()->CheckPingDataUpToDate( 0.0f );
+#endif
 
 	// Just loading the library starts initial pinging
 	m_bPendingPingRefresh = true;
@@ -777,7 +785,9 @@ void CTFGCClientSystem::Shutdown()
 
 	BaseClass::Shutdown();
 
+#ifdef OB_USE_SDR
 	SteamDatagramClient_Kill();
+#endif
 }
 
 //-----------------------------------------------------------------------------
@@ -921,7 +931,11 @@ void CTFGCClientSystem::InvalidatePingData()
 //-----------------------------------------------------------------------------
 void CTFGCClientSystem::PingThink()
 {
+#ifdef OB_USE_SDR
 	ISteamNetworkingUtils *pUtils = SteamNetworkingUtils();
+#else
+	ISteamNetworkingUtils* pUtils = nullptr;
+#endif
 	if ( !pUtils && BUseSteamDatagram() )
 	{
 		Assert( pUtils );
