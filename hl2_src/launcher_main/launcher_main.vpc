@@ -68,9 +68,7 @@ $Configuration
 									"if ERRORLEVEL 1 goto BuildEventFailed" "\n" \
 									"copy $(TargetDir)\default.pdb $OUTBINDIR\default.pdb" "\n"					\
 									"if ERRORLEVEL 1 goto BuildEventFailed" "\n" \
-									"if exist $(TargetDir)$(TargetName).map copy $(TargetDir)$(TargetName).map $OUTBINDIR\hl2.map" "\n" \
-									"call $SRCDIR\vpc_scripts\valve_p4_edit.cmd $OUTBINDIR\hl2.dat $SRCDIR" "\n"								\
-									"$OUTBINDIR\bin\newdat $OUTBINDIR\hl2.exe" "\n"					\
+									"if exist $(TargetDir)$(TargetName).map copy $(TargetDir)$(TargetName).map $OUTBINDIR\hl2.map" "\n" \					\
 									"goto BuildEventOK" "\n" \
 									":BuildEventFailed" "\n" \
 									"echo *** ERROR! PostBuildStep FAILED for $(ProjectName)! EXE or DLL is probably running. ***" "\n" \

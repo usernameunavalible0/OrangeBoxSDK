@@ -1,9 +1,21 @@
 *.vs
-[Dd]ebug
-[Rr]elease
+game/*/*.dll
+game/*.exe
+!game/bin/SDL2.dll
+!game/dll/steam_api.dll
+[Dd]ebug*
+[Rr]elease*
 !hl2_src/thirdparty/protobuf-2.6.1/bin/win32/2015/staticcrt/[Dd]ebug
 !hl2_src/thirdparty/protobuf-2.6.1/bin/win32/2015/staticcrt/[Rr]elease
 *.vpc_crc
+*.sentinel
+generated_proto
+
+#tier0
+hl2_src/tier0/ValveETWProviderEvents.h
+hl2_src/tier0/ValveETWProviderEvents.rc
+hl2_src/tier0/ValveETWProviderEvents_MSG00001.bin
+hl2_src/tier0/ValveETWProviderEventsTEMP.bin
 
 # Files to ignore when considering what GIT should commit.
 
@@ -17,6 +29,7 @@
 *.log
 *.scc
 *.exp
+*.pdb
 *.ilk
 *.lastbuildstate
 vc100.pdb
